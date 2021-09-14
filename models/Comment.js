@@ -34,7 +34,7 @@ Comment.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'posst',
+            model: 'post',
             key: 'id'
         },
     },

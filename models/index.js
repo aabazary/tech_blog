@@ -34,5 +34,6 @@ Comment.belongsTo(Post, {
 
 module.exports = {
     User,
-    Project
+    Post,
+    Comment
 };
