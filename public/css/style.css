@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background-color: brown;
+    padding: 20px;
+}
+h1{
+    background-color: crimson;
+    padding: 10px;
+    width: fit-content;
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+.tabs{
+    padding-right: 20px;
+    color: cyan;
+    margin-top: 20px;
+    font-size: 20px;
+}
