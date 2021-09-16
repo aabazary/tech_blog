@@ -43,4 +43,8 @@ router.get('/', async (req, res) => {
 });  
 });
 
+router.get('/add', (req, res) => {
+    res.render('add-post');
+});
+
 module.exports = router;
