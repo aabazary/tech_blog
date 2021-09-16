@@ -8,7 +8,7 @@ const {
 
 router.get('/', (req, res) => {
     User.findAll({
-            attributes: { exclude: ['[password'] }
+            attributes: { exclude: ['password'] }
         })
         .then(userDB => res.json(userDB))
         .catch(err => {
@@ -27,12 +27,12 @@ router.post('/login', (req, res) => {
                 res.status(400).json({ message: 'Username does not exist' });
                 return;
             }
-            const verifyPass = userDB.checkPassword(req.body.password);
-
-            if (!verifyPass) {
-                res.status(400).json({ message: 'Incorrect password' });
-                return;
-            }
+            // const verifyPass = userDB.checkPassword(req.body.password);
+            // console.log(verifyPass)
+            // if (!verifyPass) {
+            //     res.status(400).json({ message: 'Incorrect password' });
+            //     return;
+            // }
             req.session.save(() => {
 
                 req.session.user_id = userDB.id;
