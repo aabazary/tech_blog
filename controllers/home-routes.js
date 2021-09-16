@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
       ],
       include: [{
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+                    attributes: ['id', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -29,7 +29,8 @@ router.get('/', async (req, res) => {
                     attributes: ['username']
                 }
             ]
-        });
+        
+    });
 
     const posts = postData.map((project) => project.get({
       plain: true
