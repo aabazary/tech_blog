@@ -16,8 +16,20 @@ router.get('/', async (req, res) => {
         'title',
         'content'
       ],
-
-    });
+      include: [{
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        });
 
     const posts = postData.map((project) => project.get({
       plain: true
