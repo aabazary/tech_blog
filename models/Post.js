@@ -16,6 +16,9 @@ Post.init({
     title: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+            len: [2],
+        },
     },
     content: {
         type: DataTypes.STRING,

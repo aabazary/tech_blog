@@ -1,14 +1,16 @@
 const router = require('express').Router();
 const {
-  User,
-  Post,
-  Comment
+    User,
+    Post,
+    Comment
 
 } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
-            attributes: { exclude: ['password'] }
+            attributes: {
+                exclude: ['password']
+            }
         })
         .then(userDB => res.json(userDB))
         .catch(err => {
@@ -19,7 +21,9 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     User.findOne({
-            attributes: { exclude: ['password'] },
+            attributes: {
+                exclude: ['password']
+            },
             where: {
                 id: req.params.id
             },
@@ -49,7 +53,9 @@ router.get('/:id', (req, res) => {
         })
         .then(userDB => {
             if (!userDB) {
-                res.status(404).json({ message: 'Username does not exist' });
+                res.status(404).json({
+                    message: 'Username does not exist'
+                });
                 return;
             }
             res.json(userDB);
@@ -68,7 +74,9 @@ router.post('/login', (req, res) => {
             }
         }).then(userDB => {
             if (!userDB) {
-                res.status(400).json({ message: 'Username does not exist' });
+                res.status(400).json({
+                    message: 'Username does not exist'
+                });
                 return;
             }
             // const verifyPass = userDB.checkPassword(req.body.password);
@@ -83,7 +91,10 @@ router.post('/login', (req, res) => {
                 req.session.username = userDB.username;
                 req.session.loggedIn = true;
 
-                res.json({ user: userDB, message: 'Log in Succesfull' });
+                res.json({
+                    user: userDB,
+                    message: 'Log in Succesfull'
+                });
             });
         })
         .catch(err => {
@@ -106,11 +117,11 @@ router.post('/logout', (req, res) => {
 router.post('/', (req, res) => {
 
     User.create({
-        username: req.body.username,
-        password: req.body.password
-    })
+            username: req.body.username,
+            password: req.body.password
+        })
 
-    .then(userDB => {
+        .then(userDB => {
             req.session.save(() => {
                 req.session.user_id = userDB.id;
                 req.session.username = userDB.username;

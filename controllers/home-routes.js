@@ -46,13 +46,15 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findOne({
-      attributes: [
-        'id',
-        'title',
-        'content',
-        'createdAt'
-      ],
+    const postData = await Post.findByPk(req.params.id, 
+      {
+      
+      // attributes: [
+      //   'id',
+      //   'title',
+      //   'content',
+      //   'createdAt'
+      // ],
       include: [{
                     model: Comment,
                     attributes: ['id', 'post_id', 'user_id'],
@@ -68,12 +70,11 @@ router.get('/post/:id', async (req, res) => {
             ]
         
     });
+    console.log("postdata",postData)
+    const posts = postData.get({ plain: true });
+    console.log("postdata2",postData)
+    res.render('post-info', {posts , loggedIn: req.session.loggedIn });
 
-    const posts = postData.map((project) => project.get({
-      plain: true
-    }));
-    console.log(posts)
-    res.render('post-info', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
