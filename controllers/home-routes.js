@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((project) => project.get({
       plain: true
     }));
-    console.log(posts)
+
     res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn
@@ -72,11 +72,11 @@ router.get('/post/:id', async (req, res) => {
       ]
 
     });
-    console.log("postdata", postData)
+
     const posts = postData.get({
       plain: true
     });
-    console.log("postdata2", postData)
+
     res.render('post-info', {
       posts,
       loggedIn: req.session.loggedIn

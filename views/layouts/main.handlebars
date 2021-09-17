@@ -12,16 +12,42 @@
 <body>
     <header>
         <h1>Tech Blog</h1>
-        <nav class"nav">
-            <a class="tabs" href="/">Home</a>
-            {{#if loggedIn}}
-            <a class="tabs" href="/dashboard">Dashboard</a>
-            <a class="tabs" href="/dashboard" id="logout">Logout</a>
-            {{else}}
-            <a class="tabs" href="/login">Dashboard</a>
-            <a class="tabs" href="/login">Login</a>
-            {{/if}}
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <nav class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class=" md:ml-6 md:flex md:items-center md:space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                aria-current="page">Home</a>
+                            {{#if loggedIn}}
+                            <a href="/dashboard"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+
+                            <a href="/dashboard"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log
+                                Out</a>
+                            {{else}}
+                            <a href="/login"
+                                class="tabs text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                            <a href="/login"
+                                class="tabs text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log
+                                In</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </nav>
+
+
+
+
+
+
+
 
     </header>
     <main class="container container-fluid mt-5">
@@ -33,9 +59,9 @@
 
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
-    
+
     {{else}}
-    
+
     {{/if}}
 </body>
 
