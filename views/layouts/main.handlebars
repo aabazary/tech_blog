@@ -9,24 +9,23 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-    <header>
-        <h1>Tech Blog</h1>
+<body class ="bg-gray-500">
+    <header class="bg-gray-900 px-5 py-5">
+        <h1  class="text-2xl font-bold text-white sm:text-3xl sm:truncate">Tech Blog</h1>
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <nav class="bg-gray-800">
+        <nav class="bg-gray-800 mt-2" >
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
-                    <div class="flex">
+                    <div class="flex items-center">
                         <div class=" md:ml-6 md:flex md:items-center md:space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                aria-current="page">Home</a>
+                            <a href="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                             {{#if loggedIn}}
                             <a href="/dashboard"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
 
                             <a href="/dashboard"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="logout">Log
                                 Out</a>
                             {{else}}
                             <a href="/login"
@@ -50,7 +49,7 @@
 
 
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="container container-fluid mt-5 bg-gray-500 justify-center">
         {{{ body }}}
     </main>
     <footer>

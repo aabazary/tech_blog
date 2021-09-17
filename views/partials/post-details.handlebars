@@ -1,8 +1,61 @@
-<div class="card">
+{{!-- <div class="card">
     <div class="card-header">
-       <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
+        <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
         <p>Posted by {{user.username}} {{format_date createdAt}}</p>
 
     </div>
-        <p class="card-body">{{content}}</p>
+    <p class="card-body">{{content}}</p>
+</div> --}}
+
+<div class="bg-white shadow overflow-hidden sm:rounded-md mb-2 ml-5">
+    <ul role="list" class="divide-y divide-gray-200 ml-5">
+        <li>
+            <a href="/post/{{id}}" class="block hover:bg-gray-50">
+                <div class="px-4 py-4 sm:px-6">
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-indigo-600 truncate">
+                            {{title}}
+                        </p>
+                    </div>
+                    <div class="mt-2 sm:flex sm:justify-between">
+                        <div class="sm:flex">
+                            <p class="flex items-center text-sm text-gray-500">
+                                <!-- Heroicon name: solid/user -->
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+                                    xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                        clipRule="evenodd" />
+                                </svg>
+
+                                {{user.username}}
+                            </p>
+                            <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
+                                <!-- Heroicon name: solid/location-marker -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                {{content}}
+                            </p>
+                        </div>
+                        <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                            <!-- Heroicon name: solid/calendar -->
+                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <p>
+                                Created on
+                                {{format_date createdAt}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>
