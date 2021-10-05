@@ -1,10 +1,11 @@
 async function deleteButton(event) {
   event.preventDefault();
-  var deleteBtn = document.getElementById('delete');
+  var deleteBtn = document.querySelector('.delete-post');
   var dataID = deleteBtn.getAttribute('data-id');
   console.log('dataID', dataID);
 
-  const response = await fetch(`/api/posts/${dataID}`, {
+  const response = await fetch(`/dashboard/posts/${dataID}`, {
+        
       method: 'DELETE',
       body: JSON.stringify({
           post_id: dataID,
@@ -12,8 +13,9 @@ async function deleteButton(event) {
       headers: {
           'Content-Type': 'application/json',
       },
+      
   });
-
+console.log(response)
   if (response.ok) {
       document.location.replace('/dashboard/');
   } else {
@@ -21,4 +23,4 @@ async function deleteButton(event) {
   }
 }
 
-document.getElementById('delete').addEventListener('click', deleteButton);
+document.querySelector('.delete-post').addEventListener('click', deleteButton);
